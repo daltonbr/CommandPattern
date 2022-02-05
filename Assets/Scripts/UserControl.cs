@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -24,7 +23,6 @@ public class UserControl : MonoBehaviour
     private int m_DisplayedMoveDisplay;
     private List<GameObject> m_MoveDisplayPool = new List<GameObject>();
 
-    // Start is called before the first frame update
     void Start()
     {
         m_CurrentState = State.SelectingUnit;
@@ -45,8 +43,7 @@ public class UserControl : MonoBehaviour
         
         m_MovableCells = new Vector3Int[count];
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         //We still have an animation underway, we can't interact yet.
@@ -146,8 +143,13 @@ public class UserControl : MonoBehaviour
                 //only if there is no unit on the target cell do we move there
                 if (unit == null)
                 {
-                    MoveCommand cmd = new MoveCommand(m_SelectedUnit.CurrentCell, clickedCell);
-                    CommandManager.Instance.AddCommand(cmd);
+                    MoveCommand command = new MoveCommand(m_SelectedUnit.CurrentCell, clickedCell);
+                    CommandManager.Instance.AddCommand(command);
+                }
+                else if (unit.Side != m_SelectedUnit.Side)
+                {
+                    CaptureCommand command = new CaptureCommand(m_SelectedUnit.CurrentCell, clickedCell);
+                    CommandManager.Instance.AddCommand(command);
                 }
             }
         }
