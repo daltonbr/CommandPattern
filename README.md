@@ -2,7 +2,7 @@
 
 A Unity project to aimed to illustrate the Command Pattern through the implementation of a Undo/Redo functionality in a turn based game, where you can move and capture pieces.
 
-![Image](https://connect-prd-cdn.unity.com/20210416/learn/images/92379546-c62d-41f7-9924-5d78dfeb6b40_commandboard.png.2000x0x1.png)
+![CommandPatterGif](./Docs/CommandPattern720p.gif)
 
 ## What is this pattern?
 
