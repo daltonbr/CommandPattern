@@ -39,4 +39,6 @@ public class MoveCommand : CommandManager.ICommand
         Gameboard.Instance.MoveUnit(m_MovingUnit, m_From);
         Gameboard.Instance.SwitchTeam();
     }
+
+    public void Redo() => Execute();
 }

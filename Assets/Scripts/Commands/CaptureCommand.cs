@@ -53,4 +53,6 @@ public class CaptureCommand : CommandManager.ICommand
         Gameboard.Instance.MoveUnit(m_CapturingUnit, m_From);
         Gameboard.Instance.SwitchTeam();
     }
+
+    public void Redo() => Execute();
 }
